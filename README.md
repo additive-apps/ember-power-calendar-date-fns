@@ -1,8 +1,6 @@
-@makepanic/ember-power-calendar-date-fns
-==============================================================================
+# @additive-apps/ember-power-calendar-date-fns
 
-[![Build Status](https://travis-ci.org/makepanic/ember-power-calendar-date-fns.svg?branch=master)](https://travis-ci.org/makepanic/ember-power-calendar-date-fns)
-[![npm version](https://badge.fury.io/js/%40makepanic%2Fember-power-calendar-date-fns.svg)](https://badge.fury.io/js/%40makepanic%2Fember-power-calendar-date-fns)
+forked from [makepanic/ember-power-calendar-date-fns](https://github.com/makepanic/ember-power-calendar-date-fns)
 
 Date manipulation, formatting and parsin is too complex for ember-power-calendar to reinvent, so it
 has to rely on other well tested libraries for that.
@@ -13,30 +11,25 @@ using [date-fns](https://date-fns.org/) underneath.
 You will want to install this addon if you already use date-fns in your application already, or if
 you don't want to use moment.js or [Luxon](https://moment.github.io/luxon/).
 
+## Compatibility
 
-Compatibility
-------------------------------------------------------------------------------
+- Ember.js v3.24 or above
+- Ember CLI v3.24 or above
+- Node.js v12 or above
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
-* Node.js v12 or above
+|     ember | date-fns | ember-power-calendar-date-fns |
+| --------: | -------: | ----------------------------: |
+|         ? |      1.x |                      &lt; 0.3 |
+|         ? |      2.x |                      &ge; 0.3 |
+| &ge; 3.11 |      2.x |                      &ge; 0.4 |
 
-| ember | date-fns | ember-power-calendar-date-fns |
-| -------:| -------------:| -----:|
-| ? | 1.x | &lt; 0.3 |
-| ? | 2.x | &ge; 0.3 |
-| &ge; 3.11 | 2.x | &ge; 0.4 |
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
-ember install @makepanic/ember-power-calendar-date-fns
+ember install @additive-apps/ember-power-calendar-date-fns
 ```
 
-
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 **Don't use it.**
 
@@ -59,28 +52,29 @@ If you only want to support only a subset of all `date-fns/locale` locales, you 
 
 ```js
 const app = new EmberApp(defaults, {
-    'ember-power-calendar-date-fns': {
-      // include only 'en-US', 'en-GB', 'zh-CN' and 'de' locale
-      includeLocales: ['en-US', 'en-GB', 'zh-CN', 'de']
-    }
+  'ember-power-calendar-date-fns': {
+    // include only 'en-US', 'en-GB', 'zh-CN' and 'de' locale
+    includeLocales: ['en-US', 'en-GB', 'zh-CN', 'de'],
+  },
 });
 ```
 
 This will cause the addon to build imports that directly load the specified locales.
 
-**Note**: 
-* you can only include locales that date-fns exports. See [locale](https://github.com/date-fns/date-fns/tree/master/src/locale) for locales that this addon can import. (See also [Supported Languages](https://date-fns.org/v1.30.1/docs/I18n#supported-languages)).
+**Note**:
+
+- you can only include locales that date-fns exports. See [locale](https://github.com/date-fns/date-fns/tree/master/src/locale) for locales that this addon can import. (See also [Supported Languages](https://date-fns.org/v1.30.1/docs/I18n#supported-languages)).
 
 ### DIY
 
 Alternatively, if you don't want to ship all of `date-fns/locale`, you can localize the calendar yourself.
-To do this, configure the addon by setting the `'ember-power-calendar-date-fns'` field as ember option: 
+To do this, configure the addon by setting the `'ember-power-calendar-date-fns'` field as ember option:
 
 ```js
 const app = new EmberApp(defaults, {
-    'ember-power-calendar-date-fns': {
-      includeLocales: false
-    }
+  'ember-power-calendar-date-fns': {
+    includeLocales: false,
+  },
 });
 ```
 
@@ -106,8 +100,9 @@ export default class PowerCalendarDays extends DaysComponent {
     const { intl } = this;
     const prefix = 'calendar.days.short';
 
-    return ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
-      .map(k => intl.t(`${prefix}.${k}`));
+    return ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'].map((k) =>
+      intl.t(`${prefix}.${k}`)
+    );
   }
 
   @alias('weekdaysShort') weekdaysMin!: string[];
@@ -117,19 +112,17 @@ export default class PowerCalendarDays extends DaysComponent {
     const { intl } = this;
     const prefix = 'calendar.days.long';
 
-    return ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
-      .map(k => intl.t(`${prefix}.${k}`));
+    return ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'].map((k) =>
+      intl.t(`${prefix}.${k}`)
+    );
   }
 }
 ```
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
