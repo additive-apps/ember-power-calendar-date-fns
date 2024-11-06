@@ -1,42 +1,44 @@
+<h2 id='title'>Welcome to Ember</h2>
+
 <h3>&lt;PowerCalendar /&gt;</h3>
 <div id='power-calendar'>
   <PowerCalendar
-    @center={{someDate}}
-    @selected={{selected}}
-    @onSelect={{action (mut selected) value='date'}}
-    @onCenterChange={{action (mut someDate) value='date'}}
-    as |cal|
+    @center={{this.someDate}}
+    @selected={{this.selected}}
+    @onSelect={{this.onSelect}}
+    @onCenterChange={{this.onCenterChange}}
+    as |calendar|
   >
-    <cal.Nav />
-    <cal.Days />
+    <calendar.Nav />
+    <calendar.Days />
   </PowerCalendar>
 </div>
 
 <h3>&lt;PowerCalendarRange /&gt;</h3>
 <div id='power-calendar-range'>
   <PowerCalendarRange
-    @center={{someDate}}
-    @selected={{selectedRange}}
+    @center={{this.someDate}}
+    @selected={{this.selectedRange}}
     @minRange='1w'
-    @onSelect={{action (mut selectedRange) value='_date'}}
-    @onCenterChange={{action (mut someDate) value='_date'}}
-    as |cal|
+    @onSelect={{this.onSelectedRange}}
+    @onCenterChange={{this.onCenterChangeMultiple}}
+    as |calendar|
   >
-    <cal.Nav />
-    <cal.Days />
+    <calendar.Nav />
+    <calendar.Days />
   </PowerCalendarRange>
 </div>
 
 <h3>&lt;PowerCalendarMultiple /&gt;</h3>
 <div id='power-calendar-multiple'>
   <PowerCalendarMultiple
-    @center={{someDate}}
-    @selected={{selectedMultiple}}
-    @onSelect={{action (mut selectedMultiple) value='_date'}}
-    @onCenterChange={{action (mut someDate) value='_date'}}
-    as |cal|
+    @center={{this.someDate}}
+    @selected={{this.selectedMultiple}}
+    @onSelect={{this.onSelectedMultiple}}
+    @onCenterChange={{this.onCenterChangeMultiple}}
+    as |calendar|
   >
-    <cal.Nav />
-    <cal.Days />
+    <calendar.Nav />
+    <calendar.Days />
   </PowerCalendarMultiple>
 </div>
