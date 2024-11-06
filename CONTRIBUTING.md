@@ -8,9 +8,8 @@
 
 ## Linting
 
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
+* `yarn lint`
+* `yarn lint:fix`
 
 ## Running tests
 
@@ -24,7 +23,3 @@
 * Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
-
-## Notes
-
-* please follow https://conventionalcommits.org/ when writing commit messages. This makes it easier for us to generate a changelog 
